@@ -1,0 +1,176 @@
+\section{Evaluation metrics}
+The key of measuring the progress of research is, "evaluation".Evaluation metrics are employed to verify the effectiveness of any research.This section will discuss all the evaluation metrics used in the reported research.There is a quite a range of metrics used in literature for Recommender Systems.The evaluation is broadly categorized in to two sections.\cite{AddRef}
+\\1. Online Evaluation
+\\2. Offline Evaluation 
+\newline
+\\\textbf{Online Evaluation}
+There are multiple factors involved in measurement of real effect of a recommendation system;for instance user's context(how much user trust the system and how many items are already known to him), user's approach towards novelty and diversity and the interface through which recommendations are presented to the user.Thus, experiments that give the strongest evidence about the real value of the system, are the one in which real user is interacting with system in real time scenarios and this arrangement is entitled as online evaluation.The best case of testing in such system is to compare a few systems together to find the best suited one for a particular domain.\cite{online-evaluation}
+\newline
+\\\textbf{Offline Evaluation}
+The offline evaluation refers to the setting where a certain dataset is available for experiments and a portion of that is used for experiments(training data) and portion of it is kept concealed for later use in testing phase(test data)
+\newline
+Here is the brief description of all the metrics used in the studied literature.The in-depth discussion on this topic is out of scope of this particular study. For detail in-sights about evaluation metrics \cite{online-evaluation} can be explored.
+\newline
+\textbf{Accuracy}
+The basic purpose of recommendation system is to recommend new things using existing data. Data is used to stimulate user behavior. Accuracy is used to evaluate a recommendation system by computing error and see how accurately recommender system predict ratings.  Mean square error (MSE), rooted mean square error (RMSE) and mean absolute error (MAE) are three accuracy evaluation metrics for recommendation system. They all follow an offline evaluation technique \textit{leave-one-out}. In \textit{leave-one-out} technique, using particular recommender algorithms, predicted value is calculated for each rating. This process is repeated until there are predicted values against all ratings. According to \cite{Metrics1} error is a divergence of prediction from actual ratings. If P is predicted rating and R is actual rating then error is a difference between P and R. In the terms of TN(True Negative), FP(False Positive), TP(True Positive and FN(False Negative) accuracy is given as:
+\[\frac{TP+TN}{TP+TN+FP+FN}\]
+\newline
+\textbf{Mean Absolute error}
+MAE is average of absolute error values \cite{Metrics2}. 
+\[ MAE = Average(|P-R|)\]
+\[MAE = \frac{\sum_{ratings} |P-R|}{\textrm{Number of ratings}} \]
+\newline
+\textbf{Root Mean Square Error}
+Mean absolute error(MSE) is computed by taking average of squared error values over all ratings. RMSE is actually a square root of MSE\cite{Metrics2}.
+\[MSE = \frac{\sum_{ratings} (P-R)^{2}}{\textrm{Number of ratings}} \]
+\[RMSE = \sqrt{MSE} \]
+\newline
+\textbf{Precision,Recall and F-measure}
+These are decision support metrics. In recommendation system, top-n items are selected and this list is what matters most. These metrics are used to see whether a certain recommender made good decision in selecting good items and avoiding bad items. 
+\newline
+\textit{Precision} : It is the percentage of selected items that are relevant to user\cite{Metrics2}. Precision is about showing only relevant items in top-n list and not wasting users' time in unnecessary scrolling.
+\[Precision = P = \frac{N_{rs}}{N_s} \]
+N\textsubscript{rs} : Number of selected and relevant items\newline
+N\textsubscript{s} : Number of selected items
+\newline
+\textit{Recall}: It is percentage of relevant items that are selected\cite{Metrics2}. Recall is to ensure that all relevant items that may be useful for users are present in recommendation list. It is also called sensitivity.
+\[Recall = R = \frac{N_{rs}}{N_r} \]
+N\textsubscript{r} : Number of relevant items
+\newline
+\textit{F-measure}: To balance precision and recall F-measure is used. It is used for ensuring that top-n list has only relevant item and all possible relevant items are present in this list\cite{Metrics2}. 
+\[\textrm{F-Measure} = \frac{2PR}{P+R} \]
+\textit{Top-K setting P@k,R@k,F/F1@K} 
+Problem with Precision, Recall and F-Measure is that they cover the all the items. To deal with this problem, top-k settings is introduced in which top-k items from recommendation list are used. P@k is the precision of top-k items that are good, R@k is recall of top-k good items and similarly F/F1@k is F-measure of top-k items that are in recommendation list. 
+\[P@k = \frac{N_{r@k}}{k} \]
+\[R@k = \frac{N_{r@k}}{N_r} \]
+\[\textrm{F@k} = \frac{2P@k R@k}{P@k+R@k} \]
+\newline
+\textbf{Mean Resiprocal Rank}
+The rank based metrics decide where to put the items in recommendation list. In other words its purpose is to decide the relative preference of items\cite{Metrics2}. The items which user likes should be at higher level in list than the items user dislikes so that user find its required items quickly. Items that are at the top of list has higher rank. If item A is at 2nd position in recommendation list of relevant items then its rank will be 2 and reciprocal rank will be 1/2. The mean reciprocal rank is for overall performance of algorithms. 
+\[\textrm{MRR(O,U)} = \frac{1}{|U|} \Sigma_{u\in U} \frac{1}{k_u}\] 
+\newline
+\textbf{HitRate}
+HitRate is a count of how many correct predictions a particular recommender system has achieved. There are different types of hit rate, Total Hit Rate (THR), Availability Hit Rate (AHR), Outage Hit Rate (OHR) and Coverage Area Accuracy (CAA)\cite{Metrics3}. 
+\[HitRate = HR = \frac{\textrm{Number of hits}}{n} \]
+Number of hits means that number of items that are in top-n recommendation list are being returned or rated by users\cite{Metrics4}. Hit rate 1.0 means that desired items are being recommended and 0 means that no desired item is being recommended.
+\\
+\textbf{Average Reciprocal Hit-Rank} 
+HitRate does not give any information about the position of item in top-n list. To evaluate whether a desired item is present in top-n list and if this item is at particular position Average Reciprocal Hit-Rank is used\cite{Metrics4}.
+\[Average Reciprocal HitRank = ARHR = \frac{1}{n}\Sigma_{i=1}^h\frac{1}{p_i} \]
+\newline
+\textbf{Mean Average Precision (MAP)}\newline
+It is quality measure across recall levels and used in information retrieval systems\cite{p4-2}. If I is the set of impressions in K items, $c_{i,k}$ is number of clicks until position k then MAP is:
+\[MAP = \frac{1}{|I|}\Sigma_{i=1}^{|I|}\frac{\Sigma_{k=1}^K d_{i,k} \frac{c_{i,k}}{k}}{C_i} \]
+\textbf{Discounted Cumulative Gain (DCG)}\newline
+In recommendation list, top-n relevant items should have more value. To achieve this goal, weights of relevant items are heavy as compared to items that are irrelevant. DCG is used to emphasize the items that are most relevant in the list. Its purpose is to measure the value or utility of a item at each position. The utility is basically a rating value given to item by user. 
+\[DCG(O,u) = \Sigma_i\frac{r_{ui}}{disc(i)}\]
+\[disc(i) = \begin{cases}
+      \;\;1,\;\;\;\;\;\;i\leq2\\
+      log_2\; i ,\;\;\;i > 2
+    \end{cases}\]
+    i is position of item in list. 
+NDCG is Normalized Discount cumulative gain which is attained by normalizing DCG with total possible utility gain which is achievable\cite{p4-8}. 
+\[NDCG@n = \frac{1}{IDCG} \times \Sigma_{i=1}^n \frac{2^{r_i}-1}{log_2 (i+1)}\]
+IDCG shows that for a perfect ranking, NDCG should be 1.
+\newline
+\textbf{Diversity}
+Diversity in recommender system refers to difference of items in top-n list. It can be only applied to top-n recommender list to know that how items are distinct from each other. Pairwise similarity matrix contains similarity values of items with each other. Higher similarity means low diversity. Diversification is an approach to remove too similar items from list\cite{p6-3}\cite{p4-8}.
+\[Diversity = 1 - \frac{\Sigma_{i,j\in R(u),i\neq j} sim(i,j)}{\frac{1}{2} |R(u)| (|R(u)|-1) }\]
+R(u) is item recommendation  list.
+\newline
+\textbf{Serendipity}
+Serendipity in recommender system is recently added metrics. General definition of serendipity is surprise or unexpected results that are rather delightful. In recommendation system it refers to recommended items that users least expected in their recommendation list but these items turn out to be highly liked afterwards. Serendipity in recommender system is measured by dividing bits of delights to the total number of recommended items. And these bits of delight are measured by subtracting primitive score of item from prediction score and multiplying it to its relevance score.
+\[\frac{1}{N}\Sigma_{i=1}^N max(Pr(s_i)-Prim(s_i), 0) * isrel(s_i)\]
+So serendipity is sum of obviousness of item multiply by relevance score for all items and all of these are divided by total number of selected item. Primitive estimate is necessary to measure serendipity. One primitive estimate is overall popularity or obviousness of item. Relevance score is usually zero or one. It is divergence from traditional prediction of items\cite{Metrics5}.
+\newline
+\textbf{Specificity}
+Opposite of sensitivity, specificity tells us the negative results we have encountered while doing recommendations. In the terms of TN(True Negative), FP(False Positive), TP(True Positive and FN(False Negative) specificity is given as:
+\[Specificity = \frac{TN}{(FP+TN)}\]
+\newline
+\textbf{Entropy Based Novelty (EBN)}
+Popularity is evaluation metrics that can be measured by the percentage of users who rate a particular item. More people have rated a item means item is popular. Novelty is opposite of popularity which refers to the percentage of items that are not known\cite{Metrics5}. Here EBN refers to the global way of popularity among users, means, the capability of a system to recommend the item relevant to user but not much common among other users or less popular items. Entropy is actually a measure of uncertainty instead of similarity.  
+\newline
+\textbf{Coverage}
+It is percentage of items that are being recommended. Ratio of users to which items are being recommended. It does not matter in coverage if recommended items are relevant or not\cite{N70}. There are two types of coverage, item Space Coverage and user Space Coverage\cite{Metrics5}. Item space coverage is mostly referred to as catalog coverage and it can be computed in many ways using the algorithm and dataset. Sales diversity is a type of catalog coverage and Gini Index in it shows the inequality of chosen item.
+\[G = \frac{1}{n-1}\Sigma_{j=1}^n (2j-n-1)p(i_j)\]
+User space coverage uses users interaction for coverage measurements. It is useful when there is wider range of users.
+\newline
+\subsubsection{Average Click Rate}
+ACR is used in articles recommendation where $R_{u}$ is article recommended to user u and $A_{u}$ is actual articles\cite{p6-3}. Click is counted when user read recommended article.
+\[ACR = \frac{\Sigma_{u\in U} |R_u \cap A_u|}{|U|}\]
+\newline
+\subsubsection{Macro Recall}
+It counts the number of recommended articles that user actually have read\cite{p6-3} and it is defined as:
+\[\frac{1}{|U|}\Sigma_{u\in U} \frac{|R_u \cap A_u|}{|A_u|}\]
+\newline
+\subsubsection{Number of satisfied users}
+
+%It is defined in \cite{p6-3} as:
+%\[NSU = \Sigma_{u\in U} \mathbb{I}(|R_u \cap A_u| > 0)\]
+%$\mathbb{I}$ is predicate which value is 1 if prediction is true otherwise false.
+\subsection{Overall Summary of Evaluation Metrics}
+\begin{table}[!htbp] 
+\centering
+\footnotesize
+\def\arraystretch{1.4}%
+\centering
+\begin{tabular}{|p{2cm}|p{9cm}|}
+\hline
+\textbf{Evaluation Metric} & \textbf{Studies Used In}
+\\
+\hline
+Specificity& \cite{SF-IDF}, \cite{SF-IDF+}, \cite{bingSF-IDF+},
+\\
+\hline
+Mean Absolute Error (MAE) & \cite{N4}, \cite{p3-1}, \cite{N4}, 
+\\
+\hline 
+Precision & \cite{p4-7}, \cite{p4-6}, \cite{49Ahn}, \cite{N9}, \cite{N26}, \cite{N2}, \cite{N13}, \cite{N21}, \cite{N66}, \cite{N67}, \cite{N51}, \cite{p4-1}, \cite{p4-5}, \cite{N71}
+\\
+\hline 
+Recall & \cite{49Ahn}, \cite{CF-IDF}, \cite{CF-IDF+}, \cite{N26}, \cite{N2}, \cite{N13}, \cite{N15}, \cite{N21}, \cite{N14}, \cite{N66}, \cite{N59}, \cite{N51}, \cite{p4-1}, \cite{p4-5}, \cite{p4-6}, \cite{p4-7}, 
+\\
+\hline
+F1-Measure & \cite{SF-IDF}, \cite{CF-IDF}, \cite{CF-IDF+}, \cite{SF-IDF+}, \cite{bingSF-IDF+}, \cite{Bing-CF-IDF+}, \cite{N28}, \cite{N5}, \cite{N1}, \cite{N1}, \cite{N3}, \cite{p6-1}, \cite{p4-6}, \cite{p4-7}
+\\
+\hline
+Mean Reciprocal Rank (MRR) & \cite{N1}, \cite{N24}, \cite{N11}, \cite{N17}, \cite{N33}, \cite{N19}, \cite{N20}, \cite{p4-2}, \cite{N62}
+\\
+\hline
+Hit-Rate and Hit-Rank (HR) & \cite{N24}, \cite{p6-5}, \cite{N71}
+\\
+\hline
+Average Reciprocal Hit-Rank (ARHR) & \cite{N65}
+\\
+\hline
+Mean Average Precision (MAP) & \cite{N60}, \cite{N14}, \cite{p6-4}, \cite{p4-2}, \cite{N50}, \cite{N64}, \cite{N62}, \cite{N65}
+\\
+\hline
+(Normalized)-Discounted Cumulative Gain (DCG)(NDCG) & \cite{N11}, \cite{N67}, \cite{N33}, \cite{N18}, \cite{p6-4},\cite{N63},\cite{N50},\cite{N2},\cite{N13}, \cite{N71}
+\\
+\hline
+Entropy Based Novelty (EBN) & \cite{N13}
+\\
+\hline
+Serendipity & \cite{N70}
+\\
+\hline
+Diversity & \cite{N13}, \cite{N70}
+\\ 
+\hline
+Coverage & \cite{N10}, \cite{N71}
+\\ 
+\hline
+Average Click Rate(ACR) & \cite{p6-3}
+\\ 
+\hline
+Macro Recall(MR) & \cite{p6-3}
+\\ 
+\hline
+Number of satisfied users(NSU) & \cite{p6-3}
+\end{tabular}
+
+\caption{Summary of Evaluation Metrics}
+\label{table:20}
+\end{table}
+\\

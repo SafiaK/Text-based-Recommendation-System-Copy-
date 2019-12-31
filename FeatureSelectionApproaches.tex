@@ -1,0 +1,108 @@
+\section{Feature Selection Approaches}
+\subsection{Key word based }
+In the most simplest form of text-based features, keywords are extracted from the text to present an item or user's profile.After parsing and cleaning data; the process of extraction follows the key steps of NLP like tokenization, stop word removal and stemming.For instance words like "computing", "computer" and "computers" could all be saved as their root word i.e. "compute".
+\subsubsection{TF-IDF}
+There are various approaches to present these keywords/terms, one basic way is Vector Space Model (VSM). In VSM an item's content is presented as an m-dimensional vector where m is the total no. of terms extracted from the item. Each position in the vector specify the weight of a term corresponding to that item or user and is calculated  with basic TF-IDF weighting scheme.
+\begin{equation}
+$wi =tf_i . log\big[\frac{n}{If_i}\big] $
+\end{equation}
+\\Where $tf_i $ is total occurrences in the description of an item 
+\\  $n $ = total no of items in the collection
+\\ $If_i$ = number of items whose description contains term t  at least once
+\\Although this is a very basic technique of content base filtering and researchers have been using it for quite a long time; yet it is equally popular in recent studies as well.
+\\
+The technique was widely used for web recommendations; Letizia\cite{Lieberman95letizia}is a web browser extension that builds a personalized model by extracting the key words in user's browsed history.It adopts the method of implicit feedback; like bookmarking a web page is considered as a strong sign of user's interest in that page.In a same way,\textit{CiteSeer}\cite{N52} uses TFIDF to build the autonomous agent to find the relevant research papers over World Wide Web(WWW).  \textit{YourNews}\cite{49Ahn}, a personalized news system,use keywords to make the profile of users on 8 different topics. The content on each topic is kept and maintain separately as vector space model. These profile models are then used to recommend news to users by comparing them to the vector of upcoming news article.\cite{N55}is another news recommendation system built on this technique but it improves the score of keywords which user has selected and decreases the score which was ranked at top but user has not selected them.\cite{N50} is using the tf-idf similarity to recommend the social tags.TF-IDF is also used as a base technique for recommendation along with other factors of manipulation; for example MAPS\cite{N51} uses at as base to recommend the Point of Interest based on previous history of check-ins, in location-based social networks.However, MAPS taken the time and distance as well to enhance the recommendation accuracy along with simple location information.
+\\There are many other recommendation systems which use this technique \cite{N56} proposes another variation of TF-IDF and named it $TD-ID_uF$. While the classic IDF is calculated using the document frequencies in the recommendation corpus, $ID_uF$ is calculated using the document frequencies in a user’s personal document collection cu, where terms are weighted more strongly, the fewer documents in a user’s collection contain these terms.
+\newline
+$TF-ID_uF = tf(t)*log\frac{N_u}{n_u}$
+\\t         =Term to weight
+\\tf(t)    = Frequency of t in the documents of $c_um$ 
+\\$c_u$     =A user’s collection of documents
+\\$N_u$      =Number of documents in $c_u$
+\\$n_u$     =Number of documents in $c_u$ that contain t
+\newline
+\\
+\cite{N22}proposes a recommendation model to suggest Journals to the researchers given the title and abstract of the article.They used tf-idf technique for profiling and applied SVD technique to reduce the sparsity of if-idf matrix.
+\subsection{BM25TD-IDF}
+BM25 stands for “Best Match 25”. Released in 1994, it’s the 25th iteration of tweaking the relevance computation.
+BM25IDF is similair to IDF but they added 1 to the value, before taking the log, which makes it impossible to compute a negative value.
+\cite{N50}
+
+
+\subsubsection{Letter based}
+This technique is an extension of bag of words(bow) techniques But instead of words, letters or combination of letters(bi-gram, tri-gram) are taken as input features. The primary advantage of this technique is to limit the vocabulary size which becomes infinite in case of bow. Recently this has been proven a very potent method in deep learning models like
+\cite{N62} extended the deep learning recommendation model of \cite{N64} where he used the original work of \cite{N63}, where word hashing technique has proposed, In which they argued that the vocabulary set could be too large if bag of words are considered as features. To reduce the dimensions, they proposed to use tri-gram letters features of the word. So, for example, the word "good" would be represented as /#go,goo,odd,od/#. With the experimentation they have reduced data set of vocabulary of 40k to token size of 10306 and vocabulary of 500k to token size of 30621.
+\subsection{Semantic Features}
+The recommendation systems that are built on keywords-only features, as discussed above,give a good start for recommendations. However, they are not capable to exploit the semantic attributes of text; which could be an important source to understand user behaviour and recommend useful items. In this section we will summarize the efforts made by researchers to explore this domain. 
+
+
+
+\subsection{WordNet - ConceptBased}
+In the attempts to include semantics in recommendations \cite{SF-IDF} Synset Frequency – Inverse Document Frequency is built on WordNet synset. It works same as TF-IDF but instead of term now synset would be considered, means two words sharing their meaning would be considered one term and would be called synset.
+\\Another effort in this direction is made by \cite{SF-IDF+}. They extended SF-IDF by incorporating the relationships among different sets of synonyms. They define a set of relationships like (Member meronym, Attribute, Domain of this synset - Region, Cause,Derivationally related form). First all the synsets are retrieved from the unread news items by means of natural language processing techniques.Then, the set of synsets is extended by appending the concepts that are referred to by semantical relationships of the included synsets.
+\\
+\cite{bingSF-IDF+} extended this search by incorporating the name entity recognition. They describe an unread news item du and the user profile dr using sets of named entities, U and R, respectively:
+\\$U ={u1,u2,...,uk}$ 
+\\$R ={r1,r2,...,rl}$
+\\
+where uk represents a named entity in the unread news item U, rl denotes a named entity in the user profile R, and k and l are the number of named entities in the unread news item and in the user profile, respectively.
+\\Next, they construct a vector containing all possible pairs of named entities from the unread news item du and the user profile dr:
+\\$V = (<u_1,r_1>,...<c_k,r_l>)\;\;$  $ \forall u \in U, r\in R$
+
+\\Subsequently, they use search engine page counts of the named entity pairs in order to measure the similarity between the pairs. The page count is defined as the number of Web pages that were found by the Bing Web search engine that contain a named entity or a pair of named entities. For every pair (u, r) in V we compute the page rank-based Point-Wise Mutual Information (PMI) co-occurrence similarity measure. The final similairty score is computed by taking the average of normalized similarity scores of SF-IDF+ score and Bing score.
+
+\subsection{knowledge/Concept/Ontology based }
+Recent studies shows that usage of ontologies is still a good source of semantics features for building recommendation systems. In this scheme vector of features are being built of concepts in general. These concepts may refer to entities, attributes of entities, all words related to some view-point, named-entities or combination of few or all these aspects.
+
+
+\cite{CF-IDF} Concept Frequency-Inverse Document Frequency is also based on Word-Net that extracts the concepts based on domain ontologies.The ontology are defined in form of classes and individuals,and to obtain these concept ontologies they used various Natural Language Processing techniques like tokenization, part-of-speech tagging and word sense disambiguation. Each news item is represented as concept vector and its cosine similarity with user's concept vector is computed for recommendation.\\A step further to CF-IDF, CF-IDF+ was introduced by \cite{CF-IDF+}. It first identifies whether a concept is a class or an individual, and using this information they retrieved the related concepts.The values of these related concepts are calculated by multiplying original concept with a weight depending on the relationship type between the original concept and the related concept.The CF-IDF+ values are then stored in a vector for the news item or the user profile. When a related concept is already part of the vector, we verify whether the CF-IDF+ value of the related concept is greater than the original CF-IDF+ of the related concept, and choose the highest CF-IDF+ value. Next, the similarity score between the user profile and each news item is computed by using the cosine similarity measure.
+
+ CF-IDF+ adopted the same way of \cite{bingSF-IDF+} and incorporating NER information to extend their work \cite{Bing-CF-IDF+} and made interpretation semantically more sound.
+All the above mentioned work is a series of efforts put in the path of news recommendation system and is implements in the Hermes News Portal which has two extensions, i.e., Athena\cite{Athena} and Ceryx\cite{SF-IDF}.
+\newline
+\cite{N61} gathers a large number of twitter data and make user profiles on three different types; hash tag based, entity based and topic modeling based. They then fed these profiles to a simple content based RS for news recommendation in twitter environment.
+\newline
+In \cite{N28}they compared the effectiveness of four distinct knowledge-based strategies which exploit different knowledge sources to build concept-based representations, in order to provide cross-lingual recommendations.These strategies are \\Tagme – an entity linking algorithm based on Wikipedia.
+\\Explicit Semantic Analysis (ESA) – a method leveraging the unstructured encyclopedic knowledge contained in Wikipedia
+\\Babelfy – an integrated approach to entity linking and Word Sense Disambiguation based on BabelNet 
+\\Distributional Lesk-Word Sense Disambiguation and Entity Linking (DL-WSDEL) – a combination of entity linking and Word
+Sense Disambiguation based on BabelNet
+\newline
+\cite{N57}proposed a system to recommend majors ,universities and employment.There proposed system consititued on four steps. Firstly collect data from students during the process of profile filling and proposing a survey to students to gather their interest. Next, build up three types of ontologies, i.e. higher education institution, students and employment. In third step they propose to use machine learning algorithms to create user profiles and cluster them.And finally recommend university by computing similarity among user profile and university.
+\\\cite{N9}proposed a system to recommend advertisements(ads) to the users of a social network.Their proposed system consists of four components, which are, the interests ontology, the ad profile generator, the user profile generator and the ads recommender. Firstly, Interest Ontologies comprise of the main concepts and the relationships among these.
+In this particular work, 15 high class categories are considered and is based on the Curlie Web directory\footnote{https://curlie.org/} and only the first two levels of the hierarchy have been considered in our interests ontology and other subcategories are used as synonyms of the higher concepts.
+Then, the Ad Profile Generator uses the interest ontologies and NLP tool kit\footnote{General Architecture for Text Engineering, https://gate.ac.uk/.}to setup the ad vector where each dimension represents a unique ontological concept. The weight corresponds to the usage of that concept in that ad.User Profile generator works same way as ad profile generator and is responsible of making ontology-based vector to represent the user's interest.\\Finally, the recommender module computes the similarity using cosine similairty measure.
+In \cite{N25},proposed a cross-lingual news recommendation system framework to find the news in a different language.They employed the semantic-web pipeline. After removal of stop words,entities are categorized with the help of a Gazetteer.To identify the entities, Part Of Speech tagging was done;such that, nouns were labeled as Named Entity, Verbs are labeled as Action and Adjectives are called Adj. Entities appearing in title are called Concepts.All this text engineering was done using the GATE\footnote{https://gate.ac.uk/} tool. Then JAPE\footnote{https://gate.ac.uk/sale/tao/splitch14.html#x19-35000014}tool is used for automatically annotating ontologies.As this tool works only for English, Google transliteration services were used for cross-lingual mapping.To map the cross-lingual ontologies OnAGUI (Ontology Alignment Graphical User Interface)\footnote{https://sourceforge.net/projects/onagui/ } was used and similarity were computed.   
+\cite{N10},\cite{N13},\cite{N15},\cite{N23} (entity)
+\subsection{Chi-square feature selection}
+
+In feature selection, one's aim to find the features which are highly dependent on the response. chi-squared test is the statistical test to measure the effectiveness of categorical data.\cite{N5} used this methodology to enhance effectiveness of their RS. 
+\subsection{Topic Modeling}
+Topics refer to a word or couple of words used as heading to certain text. Sometimes data is given such as that couples of lines are referred to one topic or in some other scenarios "Topic Modeling" algorithms are employed to form such arrangements of data. The vector of features is then represented as these topics then. Following are such scenrios.\newline
+\cite{N65} uses the random walk with restart algorithm to find the association of words to the defined topics to find cross domain recommendations.
+\cite{N70} used Latent Dirichlet allocation (LDA) based model to find the estimated topical unexpectedness. They have achieved this by considering the following factors into their model; "Word Specificity", "Topic Dissimilarity" and "Limitation of Small Topics’ Influence"
+\cite{N26}solves the problem of recommending interested topics in SINA blogs, in case user has not checked it timely.They used k-score technique on a semantic network to extract the topic of interest.They then used these topics to compute to built up the user-influence model.Moreover,number of followings, followers, authentications, likes, forwards, comments and tweets are used as indexes for factor analysis.Afterwards Z-score is used to normalize this data.Finally,Tweet Recommendation model in SINA blogs, combines the tweet popularity score and tweet authority score.
+
+\subsection{Embedding}
+Word Embedding is a technique of presenting words into vectors of real numbers,it is first introduced by Google as Word2vec\cite{w2v}. After that Facebook's fastText\cite{fasttext} and Stanford University's Glove\cite{glove} has become as established techniques in this regard.The similar concept has been adopted by \cite{doc2vec} and \cite{sent2vec} to represent a series of words in form of vectors.In these studies techniques proposed make single vector of a sentence or a document.
+\newline In case of Recommendation System this has been used in different forms.\cite{N71} has used the Word2vec algorithm to form location-based data into vector space form, then recommendations are made based on similarities.\cite{N10} also used trained fastext word embeddings along with other deep learning techniques for news recommendations. In a similar fashion whole document or article is embedded and then its similarity with other has found. \cite{N1},\cite{N2} , \cite{N12},\cite{N35}, \cite{N44},\cite{N46} are example of such cases.
+Moreover, It is used as base line model of feature extraction before feeding data to neural network.
+\cite{N33},\cite{N11},\cite{N23},\cite{N36},\cite{N37} are the work where embeddings are used as a first step of features extraction.
+Furthermore a knowledge graph of entitles are also converted in to embeddings to further use it in deep-learning settings. TransE\cite{TransE}, TransH\cite{TransH}, TransR\cite{TransR}, TransD\cite{TransD} and TranSparse\cite{TranSparse} are different algorithmic techniques to convert a knowledge graph in to embedding representation.\cite{N3},\cite{N14},\cite{N16}. \cite{N20}, \cite{N40} are few studies where they employed these algorithms for conversion of KG to later use it in recommendation task. 
+
+Event2Vec is news recommendation technique
+proposed in \cite{N20}. This model represented news events in a network of events, entities, event types and additional information. To learn latent features and network embeddings from this network, random biased walks like Breath first search and depth first search are entended. Using these network embeddings, similarity between these events is computed and events that are richly connected in network have more relevance. As compared to Node2Vec technique that does not differentiate between entity node and event node in network, this model has a better performance.
+
+
+
+
+\subsection{Emotions and Aspects extractions}
+When it comes to the rating data like movies and product recommendations, where mostly collaborative techniques are used. Rating data contains user biases and many people may have different scales of rating. for.example user A might have rated a movie 3 because he liked this movie and the other person B have rated the same movie 3 because he didn't like it much. So in this case sentiments, emotions and other opinion aspects may add beneficial role.\cite{N72} used sentiment analysis for movie reviews and a survey by\cite{D7} also concludes such techniques where this type of information is extract from user reviews to build up a recommender system. 
+
+\subsection{Feature Selection Using Deep Learning Techniques}
+Deep-learning is a set of techniques in which neural network is formed with multiple layers and various settings. These hidden layers allow to determine more complicated feature transformations due to the number of trainable weights and biases in the network.Recently Deep-learning techniques are extensively employed in area of natural language processing.Recommendation System are now also built using these techniques. Details are in next section.
+
+
+
+\\
+\\

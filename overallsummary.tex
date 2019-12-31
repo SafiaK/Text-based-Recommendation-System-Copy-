@@ -1,0 +1,322 @@
+
+
+\section{Overall Summary}
+\begin{table}[!htbp] 
+\centering
+\footnotesize
+\def\arraystretch{1.4}%
+\centering
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{1.8cm}|p{1.4cm}|p{1.2cm}|p{1.6cm}|p{4cm}|}
+\hline
+\textbf{Study} & \textbf{Dataset} & \textbf{Profiling/ Modeling}  & \textbf{Evaluation Metrics}& \textbf{Score} & \textbf{Algorithmic Technique}& \textbf{Problem Address}
+\\
+\hline 
+\multirow{\cite{49Ahn}}&News&TF-IDF&Precision, Recall&0.75 , 0.711 & cosine coefficients&Will Viewing and Editing User Profile will result on better recommendation?
+\\
+\hline
+\multirow{\cite{N55}}&News&TF-IDF&minimize distance&0.18&minimizing distance&Proposes a cyclic process to improve user profile automatically by inferring the feedback
+\\
+\hline
+\multirow{\cite{N50}}&\textbf{Delicious}, Last.fm&social tags\newline TF-based, TF-cosine,TF-IDF,BM25-based Similarity,\textbf{BM25 Cosine-based Similarity}&P@N, MAP, DCG&0.364, 0.145, 0.390 &similairty&Evaluated a few content-base models on profiles which were presented in terms of social tags
+\\
+\hline
+\multirow{\cite{N56}}&Docear's RS platform dataset&TF, TF-IDF, TF-IDuF&CTR&4.06\%, 5.09\%, 5.14\%&Cosine Similarity&Proposes a new technique for profiling
+\\
+\hline
+\multirow{\cite{N22}}&self generated& SVD, LSA(TF-IDF)&-&-&Ecludiean Distance&based only on content
+\\
+\hline
+\multirow{\cite{N64}}&Cross-domain Collaboration& letter based features\newline Multi layered Perceptron &P@k, MAP, R@k &40.0, 41.2, 69.8&cosine similarity&general Deep learning framework for matching item features and user features in cross domain environment
+\\
+\hline
+\multirow{\cite{N62}}&from commercail website& letter based features\newline RNN(LSTM)&P@k, Accuracy, MAP, MRR &0.245, 0.814, 0.099, 0.397&similairty&Deep learning for temporal news Recommendations
+\\
+\hline
+\multirow{\cite{N65}}&aminer& letter based features\newline Cross-domain Topic Learning &P@k,  MAP, R@k,ARHR &37.7, 40.6, 35.6, 14.3&random walk&Cross Domain topic collaboration
+\\
+
+\hline
+\end{tabular}
+
+\caption{Overall summary}
+\end{table}
+
+\begin{table}[!htbp] 
+\centering
+\footnotesize
+\def\arraystretch{1.4}%
+\centering
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{1.8cm}|p{1.4cm}|p{1.2cm}|p{1.6cm}|p{4cm}|}
+\hline
+\textbf{Study} & \textbf{Dataset} & \textbf{Profiling/ Modeling}  & \textbf{Evaluation Metrics}& \textbf{Score} & \textbf{Algorithmic Technique}& \textbf{Problem Address}
+\\
+\hline
+\multirow{\cite{N61}}&Twitter-News& hash tags, \newline entity based, topic modelings  &distance measure &-&distance&comparison of profiling methods
+\\
+\hline
+\multirow{\cite{SF-IDF}}&custom environment & sysnet &Accuracy, Specificity, F1-measure &80.1\%, 94.7\%, 46.8\%&cosine similarity&usage of semantics instead of words only
+\\
+\hline
+\multirow{\cite{CF-IDF}}&Hermes News Portal & concept based &Accuracy, Recall, F1-measure &+4.2\%, +24.0\%, +19.1\%&similarity&usage of semantics ontologies and compare with TF-IDF
+\\
+\hline
+\multirow{\cite{CF-IDF+}}&Hermes News Portal & concept based, related concept &\textbf{Accuracy}, Recall, F1 -measure & 0.85072, plotted against cutoff&similarity&usage of semantics ontologies and compare with TF-IDF
+\\
+\hline
+\multirow{\cite{SF-IDF+}}&Hermes News Portal & inter-synset semantic relationships &Accuracy, Specificity, F1-measure & 79.75\%, 93.13\%, 59.73\%&cosine similarity&usage of semantics ontologies and compare with TF-IDF
+\\
+\hline
+\multirow{\cite{bingSF-IDF+}}&Hermes News Portal & incorporated NER &Accuracy, Specificity, F1-measure & 81\%, 91\%, 58\%&cosine similarity&usage of Name Entity along with SF-IDF+
+\\
+\hline
+\multirow{\cite{Bing-CF-IDF+}}&Hermes News Portal & incorporated NER & F1-measure &  60\%&cosine similarity&usage of Name Entity along with CF-IDF+
+\\
+\hline
+\multirow{\cite{N28}}&DBBook\newline Movielens & Concepts incorporated from knowledge sources & F1-measure & 58.2\%\newline 54.7\%&cosine similarity&cross-lingual recommendation
+\\
+\hline
+\multirow{\cite{N9}}&custom environment & Concepts incorporated from knowledge sources & Precision & 78\%&cosine similarity&usage of ontologies for profile generation
+\\
+\hline
+\multirow{\cite{N25}}&custom environment & concept ontologies &-&-&matching factor&cross lingual News Recommendation
+\\
+\hline
+\multirow{\cite{N4}}&Book-Crossing & LDA for topic modeling &MAE, RMSE&2.6032, 3.38&CNN, minimize the cost fun&using CNN for conetnt-based recommendation
+\\
+\hline
+\multirow{\cite{N5}}&self generated & Chi-square feature selection &Accuracy, F1-measure&35.03, 0.18&softmax regression, minimize the cost fun&RS for computer science and technology articles
+\\
+\hline
+\multirow{\cite{N26}}&self generated & k-score to extract topics&Recall, Precision&76.73\%, 87.50\%&score, Linear regression&SINA micro blog recommendation
+\\
+\hline
+\end{tabular}
+
+\caption{Overall summary}
+\end{table}
+
+
+\begin{table}[!htbp] 
+\centering
+\footnotesize
+\def\arraystretch{1.4}%
+\centering
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.4cm}|p{1.4cm}|p{1.6cm}|p{4cm}|}
+\hline
+\textbf{Study} & \textbf{Dataset} & \textbf{Profiling/ Modeling}  & \textbf{Evaluation Metrics}& \textbf{Score} & \textbf{Algorithmic Technique}& \textbf{Problem Address}
+\\
+\hline
+\multirow{\cite{N1}}&DBLP\newline PubMed & NNSelect, NNRank &MRR \newline F1-measure & 0.771\newline 0.329& cosine similarity& content-based citation recommendation for query documents
+\\
+\hline
+\multirow{\cite{N2}}& PRA & Graph learning, textual and structural vectorization & Precision \newline Recall \newline F1 \newline NDCG & 90.30\% \newline 51.42\% \newline 75.14\% \newline 84.69\% & similarity, Doc2vec, Struc2vec& paper recommendation by learning vector representation
+\\
+\hline
+\multirow{\cite{N3}}& Bing News &  knowledge graph embedding & AUC \newline F1-measure & 65.7$\pm$1.1\newline 68.8$\pm$1.4 & softmax, KCNN & CTR prediction for news recommendation using Knowledge-aware CNN
+\\
+\hline
+\multirow{\cite{N10}}& News & agglomerative news clustering, semantic vector representation & Coverage \newline FPR \newline Source Quality & - & cosine similarity & Personalized news recommendation
+\\
+\hline
+\multirow{\cite{N60}}& Twitter dataset & geographical topic-based semantic modeling, ELSA & MAP@k \newline R@k \newline F@k \newline P@k & 0.5662\newline 0.9768\newline 0.9403\newline 1.1162 & cosine similarity & Personalized news recommendation using location information
+\\
+\hline
+\multirow{\cite{N12}}& Bangla News &LSA, LDA and doc2vec document embeddings & Accuracy & 91.0\% & doc2vec, softmax & Bangla news recommendation using paragraph vectors and comparison with LDA and LSA
+\\
+\hline
+\multirow{\cite{N13}}&MovieLens, LibraryThing, HotRec
+2011 LastFM & semantic annotation, Ranking functions & precision \newline recall \newline nDCG \newline EBN\newline diversity  &  0.0857 \newline 0.0561 \newline 0.0686 \newline 0.7820\newline 0.2431 & R1, R2, R3, LDSD measure & semantic annotation using reviews and linked data
+\\
+\hline
+\multirow{\cite{N15}}&MovieLens & Taxonomic structure
+with multiple inheritance in KB & recall &  0.24 & Bell Log, Intersect booster, reverse spreading & utilizing hierarchical structure of KB instead of its item taxonomies
+\\
+\hline
+\multirow{\cite{N31}}&MovieLens 1M & BRNNs, LOD-based feature & F1@5 \newline F1@10 &  0.567 \newline 0.654 & logistic regression& content-based recommendation by learning joint representation of the items
+\\
+\hline
+\multirow{\cite{N21}}&MovieLens 1M & Kowledge graph embedding, semantic information maintenance & recall \newline precision \newline F1  & - & Pearson correlation, similarity& collaborative filtering
+recommendation using semantic information
+inherent in the item 
+\\
+\hline
+\multirow{\cite{N24}}& Globo News&Article Content Representation(ACR), Next-Article Recommendation (NAR) module, LSTM& HR@5 \newline MRR@5 & 0.72 \newline 0.51 & softmax, cosine similarity& using a CNN to extract textual features from news articles
+
+\\
+\hline
+\end{tabular}
+
+\caption{Overall summary}
+\end{table} 
+
+
+\begin{table}[!htbp] 
+\centering
+\footnotesize
+\def\arraystretch{1.4}%
+\centering
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.4cm}|p{1.4cm}|p{1.6cm}|p{4cm}|}
+\hline
+\textbf{Study} & \textbf{Dataset} & \textbf{Profiling/ Modeling}  & \textbf{Evaluation Metrics}& \textbf{Score} & \textbf{Algorithmic Technique}& \textbf{Problem Address}
+\\
+\hline
+\multirow{\cite{N11}}&MSN News & Context capturing via CNNs & AUC \newline MRR \newline nDCG@5 \newline nDCG@10&  0.6289 \newline 0.3315 \newline 0.3544  \newline 0.4392& CNN, softmax& topic-aware news recommendation
+\\
+\hline
+\multirow{\cite{N14}}&MovieLens-1M, IntentBooks & heterogeneous network embedding, deep learning embedding & MAP@K \newline Recall@K & - &Bayesian TransR, Bayesian SDAE, Bayesian SCAE& hybrid recommendation by integrating collaborative filtering and KB
+\\
+\hline
+\multirow{\cite{N66}}&ULU articles &attention based modeling, NNLM & AUC \newline F1 \newline Precision \newline Recall &  0.853$\pm$0.036 \newline 0.317$\pm$0.079 \newline 0.258$\pm$0.059 \newline 0.451$\pm$0.202  &maximal distance & dynamic attention deep model for non-explicit selection criteria
+\\
+\hline
+\multirow{\cite{N67}}&commercial news &DQN-based reinforcement learning & CTR \newline Precision@5 \newline nDCG &  0.0113 \newline 0.0149 \newline0.0492 &DDQN& online personalized news recommendation by modeling dynamic news features and user preferences
+\\
+\hline
+\multirow{\cite{N17}}&IM-1M, Yelp &embedding-based, learning path saliency using SPM& Prec@1 \newline Prec@5\newline Prec@10 \newline MRR & 0.1396 \newline 0.1092\newline 0.0861 \newline 0.3056 &Semantic Path Mining, RNN, max pooling& usng RNN for recommendation by automatically capturing entity relations encoded in KGs
+\\
+\hline
+\multirow{\cite{N33}}&MSN News &news encoding, user encoding, click prediction& AUC \newline MRR\newline nDCG@5\newline nDCG@10 & 0.6243 \newline 0.3321\newline 0.3535 \newline 0.4380 &CNN, softmax& news recommendation by learning title using CNN
+\\
+\hline
+\multirow{\cite{N59}}&ProgrammableWeb & probabilistic graphical model, mashup-service pair&  Recall@N & - &SDAE, matrix factorization& using SDAE to deal with unsatisfactory quality of description given by service developers and mashup queries
+\\
+\hline
+\multirow{\cite{N18}}& self generated &Bi-LSTM, GBDT, LTR & nDCG@1 \newline nDCG@5\newline nDCG@10 & 0.1461\newline 0.2438\newline 0.2834 &cosine similarity& context modeling for improving entity recommendation
+\\
+\hline
+\multirow{\cite{N19}}& self generated &Query-based, Session-based translation model& MRR \newline P@1\newline F@5 & 0.0936\newline 0.0626\newline 0.0447 &argmax , Co-occurrence similarity& domain-agnostic method for entity suggestions by exploiting query log data
+\\
+\hline
+\multirow{\cite{N20}}& WCEP news &Network embeddings of news events & P@1 \newline P@10 \newline P@20 \newline MRR& 0.643\newline 0.845\newline 0.899\newline 0.487 &softmax , Random Walk& learning latent feature for news events
+\\
+\hline
+\multirow{\cite{N27}}& Yelp &Sentiment extraction & P@Top3 \newline AUC& 0.862\newline 0.745 &Stochastic Gradient Descent, logistic function& recommending both item and positive aspects to enhance user experience
+\\
+\hline
+\end{tabular}
+
+\caption{Overall summary}
+\end{table} 
+
+
+\begin{table}[!htbp] 
+\centering
+\footnotesize
+\def\arraystretch{1.4}%
+\centering
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.4cm}|p{1.4cm}|p{1.6cm}|p{4cm}|}
+\hline
+\textbf{Study} & \textbf{Dataset} & \textbf{Profiling/ Modeling}  & \textbf{Evaluation Metrics}& \textbf{Score} & \textbf{Algorithmic Technique}& \textbf{Problem Address}
+\\
+\hline
+\multirow{\cite{p6-1}}& Indian news &Hadoop framework  & Accuracy \newline F1-Measure@20& 0.95 at cricket \newline 0.133 at cricket &neighborhood similarity& news recommendation by supporting valuable neighbors' patterns and change of user preferences over time and domain
+\\
+\hline
+\multirow{\cite{p6-2}}& Sport1.de &Hybrid content-based and collaborative filtering  &SUS score & 87 &cosine similarity, Pearson correlation& sport news recommendation by combining content-based and collaborative filtering 
+\\
+\hline
+\multirow{\cite{p6-3}}& Palista &LDA clustering, NER for entity extraction & ACR \newline MR\newline NSU& - &distance, 2-Approximation algorithms, MAXMIN algorithm & diversify news recommendation when users are concerned about privacy and location
+\\
+\hline
+\multirow{\cite{p6-4}} &News & SVM-Rank, SVM-Perf, bag of words & nDCG \newline MAP& 0.270 \newline 0.266 & Similarity, TF-IDF & news recommendation using real time user data
+\\
+\hline
+\multirow{\cite{p6-5}} &ATScience, ATGadgets, DailyMail & CTR initialization, LDA out put,  hierarchical Bayesian
+model & AUC \newline Hit-Rank@5 & - & diffmax, softmax & comment worthy article recommendation using content-driven user profiles 
+\\
+\hline
+\multirow{\cite{p3-1}} &MovieLens & user-based, item-based, user-item based& MAE & 0.761 & correlations & implementing user-user and item-item correlations in RBM framework 
+\\
+\hline
+\multirow{\cite{N51}} &Weeplaces and the Gowalla & Topic-Sensitive PageRank & Precision \newline Recall \newline F-Score & 0.35400 \newline 0.03100 \newline 0.05700 & distance & analyzing check-in information to recommend potential check-in locations 
+\\
+\hline
+\multirow{\cite{N63}} & Queries data & word-hashing & NDCG@1 \newline NDCG@3 \newline NDCG@10 & 0.362\newline 0.425 \newline 0.498 & softmax & extended previous deep architecture latent semantic models
+\\
+\hline
+\multirow{\cite{N57}} & custom environment & Ontology-based, clustering& - & - & similarity & semantic web technology based recommender system to assist students for field selection
+\\
+\hline
+\multirow{\cite{p4-1}} & SME.SK news & vector article representation, TF-IDF &F-Score \newline Precision \newline Recall &  0.182\newline 0.165\newline  0.202 & similarity & overview of article vectors for similarity search and real content-based recommendation 
+\\
+\hline
+\end{tabular}
+
+\caption{Overall summary}
+\end{table} 
+
+
+\begin{table}[!htbp] 
+\centering
+\footnotesize
+\def\arraystretch{1.4}%
+\centering
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.4cm}|p{1.4cm}|p{1.6cm}|p{4cm}|}
+\hline
+\textbf{Study} & \textbf{Dataset} & \textbf{Profiling/ Modeling}  & \textbf{Evaluation Metrics}& \textbf{Score} & \textbf{Algorithmic Technique}& \textbf{Problem Address}
+\\
+\hline
+\multirow{\cite{p4-2}} & Bing Now & CTR &MAP \newline MRR &  0.4319\newline 0.4501 & LambdaMart & understanding user fatigue factors in recommender systems
+\\
+\hline
+\multirow{\cite{p4-3}} & XMUNews & Sparsity &RMSE &  0.727273 & regularization, SVD & analyzing the performance of regularization methods in SVD
+\\
+\hline
+\multirow{\cite{p4-4}} & Norwegian news logs & CTR & - &  - &  decay function & analyzing user logs to find the importance of recency in news
+\\
+\hline
+\multirow{\cite{p4-5}} &Dantri.com.vn, VietnamNet.vn, VNExpress.vn news & multi-tier architecture & Precision \newline Recall  \newline F1  & 87.7 \newline 61.5  \newline 72.3  &  nearest neighbor algorithm, naïve Bayesian classifier   & presented an adaptive system to learn users' interest from news stories
+\\
+\hline
+\multirow{\cite{p4-6}} &Chinese news & Time ordered measure, & hit \newline precision  \newline recall \newline F1 & - & Jaccard similarity, time-dependent similarity & using time
+sequence characteristic of user behaviors in news recommendation
+\\
+\hline
+\multirow{\cite{p4-7}} &self generated & Temporal and Non-Temporal Scoring Function & BinHR \newline ARHR & - & UKNN, Tag UKNN, TimeTag UKNN, Item-KNN & recommending articles to active users using latent-tag-vectors 
+\\
+\hline
+\multirow{\cite{p4-8}} &SINA news & bisearch optimization, coherence estimation & F1 \newline Diversity \newline NDCG & \newline 0.5278 & bipartite graph  for influence measurements & recommending news by helping users better understand the news story chain building
+\\
+\hline
+\multirow{\cite{N70}} &custom environment & LDA & Mean Surprise Rating & 0.48 \newline0.25\newline0.16\newline$<0.01$\newline$<0.01$ & Serendipity, cosine similarity, Unexpectedness, Diversity, Topic Dissimilarity & built an unexpectedness model to recommend serendipitous news articles
+\\
+\hline
+\multirow{\cite{N71}} &custom environment & Word Embedding(W2V) & Precision\newline NDCG\newline HitRate\newline Coverage & 0.119 \newline0.169\newline0.618\newline1 & cosine similarity & Used W2V models (skipgram and CBOW) for recommendation of  next check-in venue (location) on Location Based Social Networks (LBSNs)
+\\
+\hline
+\end{tabular}
+
+\caption{Overall summary}
+\end{table} 
+\begin{table}[!htbp] 
+\centering
+\footnotesize
+\def\arraystretch{1.4}%
+\centering
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{2cm}|p{1.4cm}|p{1.4cm}|p{1.6cm}|p{4cm}|}
+\hline
+\textbf{Study} & \textbf{Dataset} & \textbf{Profiling/ Modeling}  & \textbf{Evaluation Metrics}& \textbf{Score} & \textbf{Algorithmic Technique}& \textbf{Problem Address}
+\\
+\hline
+\multirow\cite{N46}&-&-&-&-&-&-
+\\
+\hline
+\multirow\cite{N44}&-&-&-&-&-&-
+\\
+\hline
+\multirow\cite{N35}&-&-&-&-&-&-
+\\
+\hline
+\multirow\cite{N37}&-&-&-&-&-&-
+\\
+\hline
+\multirow\cite{N36}&-&-&-&-&-&-
+\\
+\hline
+\multirow\cite{N40}&-&-&-&-&-&-
+\\
+\hline
+\end{tabular}
+
+\caption{Overall summary}
+\end{table} 
